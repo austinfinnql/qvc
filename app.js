@@ -6,7 +6,7 @@ const unix = require('./executeUnixCommand')
 
 async function findNewestQuicktimeFile(){
     try {
-        const sourceDirectory = `/Users/austinfinn/Desktdop/`
+        const sourceDirectory = `/Users/austinfinn/Desktop/`
         const finalList = []
 
         const allFiles = await fs.readdirSync(sourceDirectory)
