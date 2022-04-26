@@ -8,7 +8,7 @@ async function listenForMOVfiles(){
     try {
         const watcher = chokidar.watch(sourceDirectory, {
             ignored: /(^|[\/\\])\../, // ignore dotfiles
-            ignoreInitial: true, // ignore file already in the directory
+            ignoreInitial: true, // ignore files already in the directory
             persistent: true
         })
 
