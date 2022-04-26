@@ -1,0 +1,11 @@
+{
+  "name": "vid",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "cvt": "app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
