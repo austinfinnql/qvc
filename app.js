@@ -5,11 +5,12 @@ const path = require('path');
 const unix = require('./executeUnixCommand')
 
 async function findNewestQuicktimeFile(){
+    const sourceDirectory = `/Users/austinfinn/Desktop/`
     try {
-        const sourceDirectory = `/Users/austinfinn/Desktop/`
         const finalList = []
 
         const allFiles = await fs.readdirSync(sourceDirectory)
+        if(allFiles.length == 0) throw 'NO_FILES_IN_SOURCE_DIRECTORY'
 
         // only return files with a .mov file extension
         const movFiles = allFiles.filter((file) => {
@@ -18,6 +19,8 @@ async function findNewestQuicktimeFile(){
             }
         })
 
+        if(movFiles.length == 0) throw 'NO_MOV_FILES_IN_SOURCE_DIRECTORY'
+    
         // get the last modified date of each file
         for(const file of movFiles){
             const result = await fs.statSync(`${sourceDirectory}${file}`)
@@ -39,7 +42,15 @@ async function findNewestQuicktimeFile(){
         console.info(` Successfully converted '${finalList[0].fileName}' to .mp4 format`)
         console.info(`\n Video location: ${sourceDirectory}\n`)
     } catch (error) {
-        console.log('Error occured ... ', error)
+        console.info()
+        if(error == 'NO_FILES_IN_SOURCE_DIRECTORY'){
+            console.info(` There are 0 files in ${sourceDirectory}`)
+        } else if(error == 'NO_MOV_FILES_IN_SOURCE_DIRECTORY'){
+            console.info(` There are 0 .mov files in ${sourceDirectory}`)
+        } else {
+            console.info(' Error occured ... ', error)
+        }
+        console.info()
     }
 }
 
