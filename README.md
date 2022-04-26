@@ -1,6 +1,6 @@
 # The Quicktime video converter
 
-Convert `.mov` videos to `.mp4` so they will play directly in JIRA. Now people can watch your video in their Browser without needing to download it first!
+Convert `.mov` videos to `.mp4` so once uploaded to JIRA, they will play directly in the browser
 
 ## Prerequisites
 - Make sure you have [NodeJs](https://nodejs.org/en/) installed
