@@ -11,13 +11,15 @@ async function findNewestQuicktimeFile(){
 
         const allFiles = await fs.readdirSync(sourceDirectory)
 
-        const files = allFiles.filter((file) => {
+        // only return files with a .mov file extension
+        const movFiles = allFiles.filter((file) => {
             if(file.endsWith('.mov')){
                 return file
             }
         })
 
-        for(const file of files){
+        // get the last modified date of each file
+        for(const file of movFiles){
             const result = await fs.statSync(`${sourceDirectory}${file}`)
             finalList.push({
                 fileName: file,
@@ -28,6 +30,7 @@ async function findNewestQuicktimeFile(){
         finalList.sort(sortByLastModifiedDate)
         finalList.reverse()
 
+        // remove the file's extension
         const fileName = path.parse(finalList[0].fileName).name
 
         const command = `ffmpeg -i '${sourceDirectory}${fileName}.mov' '${sourceDirectory}${fileName}.mp4' -y`
