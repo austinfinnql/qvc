@@ -1,9 +1,9 @@
 {
-  "name": "vid",
+  "name": "mov_to_mp4_converter",
   "version": "1.0.0",
   "description": "",
-  "bin": {
-    "cvt": "app.js"
+  "scripts": {
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
