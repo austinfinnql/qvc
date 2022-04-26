@@ -6,13 +6,15 @@ async function listenForMOVfiles(){
     const sourceDirectory = `/Users/austinfinn/Desktop/`
 
     try {
+        console.info(`\n Listening for new .mov files in '${sourceDirectory}'\n`)
+
         const watcher = chokidar.watch(sourceDirectory, {
             ignored: /(^|[\/\\])\../, // ignore dotfiles
             ignoreInitial: true, // ignore files already in the directory
             persistent: true
         })
 
-        watcher.on('add', async (absoluteFilePath) => {
+        watcher.on('add', (absoluteFilePath) => {
 
             const fileNameWithExtension = path.parse(absoluteFilePath).base
             
@@ -25,7 +27,7 @@ async function listenForMOVfiles(){
                 console.info()
 
                 const command = `ffmpeg -i '${sourceDirectory}${fileName}.mov' '${sourceDirectory}${fileName}.mp4' -y`
-                await unix.exec(command)
+                unix.exec(command)
             }
         })
     } catch (error) {
