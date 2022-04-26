@@ -3,7 +3,7 @@
 Convert `.mov` videos to `.mp4` so they will play directly in JIRA. Now people can watch your video in their Browser without needing to download it first!
 
 ## Prerequisites
-- Make soure you have [NodeJs](https://nodejs.org/en/) installed
+- Make sure you have [NodeJs](https://nodejs.org/en/) installed
 - Download and install [FFmpeg](https://ffmpeg.org/) 
 
         brew install ffmpeg
@@ -14,10 +14,10 @@ Convert `.mov` videos to `.mp4` so they will play directly in JIRA. Now people c
 
 ## Setup 
 - Clone this repo
-- In the same directory, run the below install all dependencies
+- In the same directory, run the below to install all dependencies
 
         npm i
 
-- Start listenting for newly created `.mov` videos. It needs to run all the time
+- Start listenting for newly created `.mov` videos (the tool needs to run all the time)
 
         npm start
