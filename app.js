@@ -3,13 +3,13 @@
 const chokidar = require('chokidar');
 const helper = require('./helpers/helper')
 
-async function listenForMOVfiles(){
+async function watchForMOVfiles(){
     try {
         if(!process.argv[2]) throw 'MISSING_WATCH_PATH'
 
         const watchDirectory = helper.validateWatchDirectoryValue(process.argv[2])
 
-        console.info(`\n Listening for new .mov files in '${watchDirectory}'\n`)
+        console.info(`\n Watching for new .mov files saved to '${watchDirectory}'\n`)
 
         const watcher = chokidar.watch(watchDirectory, {
             ignored: /(^|[\/\\])\../, // ignore dotfiles
@@ -29,6 +29,6 @@ async function listenForMOVfiles(){
     }
 }
 
-listenForMOVfiles()
+watchForMOVfiles()
 
-module.exports = { listenForMOVfiles }
+module.exports = { watchForMOVfiles }

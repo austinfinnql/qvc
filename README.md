@@ -4,7 +4,7 @@ Convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play direct
 
 
 ## How it works
-- The tool listens for new `.mov` files added to a user specified folder. Once it detects a new video, it automatically converts it to `.mp4`
+- The tool watches for new `.mov` files added to a user specified folder. Once it detects a new video, it automatically converts it to `.mp4`
 - The videos significantly reduced the video file size (files will be from 5x to 10x smaller)
 
 ## Prerequisites

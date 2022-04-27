@@ -4,10 +4,10 @@ const expect  = require('chai').expect;
 const chokidar = require('chokidar');
 const helper = require('./helpers/helper')
 
-const {listenForMOVfiles} = require('./app');
+const { watchForMOVfiles } = require('./app');
 
-describe('listenForMOVfiles()', () => {
-    it(`should return watch for new .mov files added to a user specified directory`, () => {
+describe('watchForMOVfiles()', () => {
+    it(`should watch for new .mov files added to a user specified directory`, () => {
         process.argv[2] = '/fake/path/'
         const watchDirectory = process.argv[2]
 
@@ -15,7 +15,7 @@ describe('listenForMOVfiles()', () => {
         const spyWatch = sinon.spy(chokidar, 'watch')
         sinon.stub(console, 'info')
 
-        listenForMOVfiles()
+        watchForMOVfiles()
 
         sinon.assert.calledOnceWithExactly(stubValidate, process.argv[2])
         sinon.assert.calledOnceWithExactly(spyWatch, watchDirectory, {
@@ -33,7 +33,7 @@ describe('listenForMOVfiles()', () => {
         const stubConsoleInfo = sinon.stub(console, 'info')
 
         try {
-            listenForMOVfiles()
+            watchForMOVfiles()
         } catch (error) {
             expect(error).to.equal('MISSING_WATCH_PATH')
         }
