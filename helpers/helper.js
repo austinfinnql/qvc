@@ -22,6 +22,8 @@ function validateWatchDirectoryValue(watchDirectory) {
     if(!watchDirectory.endsWith('/')){
         return watchDirectory + '/'
     }
+
+    return watchDirectory
 }
 
 module.exports = {

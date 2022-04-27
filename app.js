@@ -7,7 +7,7 @@ async function listenForMOVfiles(){
     try {
         if(!process.argv[2]) throw 'MISSING_WATCH_DIRECTORY'
 
-        watchDirectory = helper.validateWatchDirectoryValue(process.argv[2])
+        const watchDirectory = helper.validateWatchDirectoryValue(process.argv[2])
 
         console.info(`\n Listening for new .mov files in '${watchDirectory}'\n`)
 
