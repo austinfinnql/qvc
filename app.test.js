@@ -13,7 +13,7 @@ describe('watchForMOVfiles()', () => {
 
         const stubValidate = sinon.stub(helper, 'validateWatchDirectoryValue').returns(watchDirectory)
         const spyWatch = sinon.spy(chokidar, 'watch')
-        sinon.stub(console, 'info')
+        const stubConsoleInfo = sinon.stub(console, 'info')
 
         watchForMOVfiles()
 
@@ -23,6 +23,7 @@ describe('watchForMOVfiles()', () => {
             ignoreInitial: true,
             persistent: true
         })
+        sinon.assert.calledOnceWithExactly(stubConsoleInfo, `\n Watching for new .mov files saved to '${watchDirectory}'\n`)
         
         sinon.restore()
     })
