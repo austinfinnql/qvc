@@ -5,7 +5,7 @@ const helper = require('./helpers/helper')
 
 async function listenForMOVfiles(){
     try {
-        if(!process.argv[2]) throw 'MISSING_WATCH_DIRECTORY'
+        if(!process.argv[2]) throw 'MISSING_WATCH_PATH'
 
         const watchDirectory = helper.validateWatchDirectoryValue(process.argv[2])
 
@@ -20,7 +20,7 @@ async function listenForMOVfiles(){
         watcher.on('add', helper.convertVideoToMP4)
 
     } catch (error) {
-        if(error == 'MISSING_WATCH_DIRECTORY'){
+        if(error == 'MISSING_WATCH_PATH'){
             console.info('\n Please include the path to the directory where Quicktime videos are saved')
             console.info('\n Example: qvc ~/Desktop/\n')
         } else {
@@ -30,3 +30,5 @@ async function listenForMOVfiles(){
 }
 
 listenForMOVfiles()
+
+module.exports = { listenForMOVfiles }
