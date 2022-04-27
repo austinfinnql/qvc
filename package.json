@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "bin": {
-    "cvt": "app.js"
+    "qvc": "app.js"
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,4 @@
-# CVT - The Quicktime video converter
+# QVC - The Quicktime video converter
 
 Convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play directly in the browser
 
@@ -24,7 +24,7 @@ Convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play direct
 
 4. Run the below to start the app (make sure to update the path value)
 
-        cvt /path/to/quicktime/videos/
+        qvc /path/to/quicktime/videos/
 
 ## Run application in the background
 
@@ -34,7 +34,7 @@ Convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play direct
 
 1. To start the tool in the background, run the below but make sure to update the path value
 
-        pm2 start "cvt /path/to/quicktime/videos/"
+        pm2 start "qvc /path/to/quicktime/videos/"
 
 1. To stop/kill the background process, run
 
