@@ -4,12 +4,12 @@ const chokidar = require('chokidar');
 
 async function listenForMOVfiles(){
     try {
-        const sourceDirectory = process.argv[2]
-        if(!sourceDirectory) throw 'MISSING_WATCH_DIRECTORY'
+        const watchDirectory = process.argv[2]
+        if(!watchDirectory) throw 'MISSING_WATCH_DIRECTORY'
 
-        console.info(`\n Listening for new .mov files in '${sourceDirectory}'\n`)
+        console.info(`\n Listening for new .mov files in '${watchDirectory}'\n`)
 
-        const watcher = chokidar.watch(sourceDirectory, {
+        const watcher = chokidar.watch(watchDirectory, {
             ignored: /(^|[\/\\])\../, // ignore dotfiles
             ignoreInitial: true, // ignore files already in the directory
             persistent: true
@@ -27,7 +27,7 @@ async function listenForMOVfiles(){
                 console.info(` Converting to .mp4; Please wait...`)
                 console.info()
 
-                const command = `ffmpeg -i '${sourceDirectory}${fileName}.mov' '${sourceDirectory}${fileName}.mp4' -y`
+                const command = `ffmpeg -i '${watchDirectory}${fileName}.mov' '${watchDirectory}${fileName}.mp4' -y`
                 unix.exec(command)
             }
         })
