@@ -1,6 +1,6 @@
 # QVC - The Quicktime video converter
 
-Convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play directly in the browser
+Convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play directly in Chrome
 
 
 ## How it works
