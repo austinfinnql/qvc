@@ -4,8 +4,9 @@ const chokidar = require('chokidar');
 
 async function listenForMOVfiles(){
     try {
-        const watchDirectory = process.argv[2]
-        if(!watchDirectory) throw 'MISSING_WATCH_DIRECTORY'
+        if(!process.argv[2]) throw 'MISSING_WATCH_DIRECTORY'
+
+        watchDirectory = validateWatchDirectoryValue(process.argv[2])
 
         console.info(`\n Listening for new .mov files in '${watchDirectory}'\n`)
 
@@ -33,10 +34,16 @@ async function listenForMOVfiles(){
         })
     } catch (error) {
         if(error == 'MISSING_WATCH_DIRECTORY'){
-            console.info('\n Please include the path to the direcyory where Quicktime videos are saved e.g. ~/Desktop\n')
+            console.info('\n Please include the path to the direcyory where Quicktime videos are saved e.g. ~/Desktop/\n')
         } else {
             console.log(error)
         }
+    }
+}
+
+function validateWatchDirectoryValue(watchDirectory) {
+    if(!watchDirectory.endsWith('/')){
+        return watchDirectory + '/'
     }
 }
 
