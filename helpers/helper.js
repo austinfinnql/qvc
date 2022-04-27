@@ -8,10 +8,8 @@ function convertVideoToMP4(absoluteFilePath) {
     if(fileNameWithExtension.endsWith('.mov')){
         const fileName = path.parse(absoluteFilePath).name
 
-        console.info()
-        console.info(` New .mov file found`)
-        console.info(` Converting to .mp4; Please wait...`)
-        console.info()
+        console.info(`\n New .mov file found`)
+        console.info(` Converting to .mp4; Please wait...\n`)
 
         const command = `ffmpeg -i '${watchDirectory}${fileName}.mov' '${watchDirectory}${fileName}.mp4' -y`
         unix.exec(command)
