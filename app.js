@@ -3,9 +3,10 @@ const unix = require('./executeUnixCommand')
 const chokidar = require('chokidar');
 
 async function listenForMOVfiles(){
-    const sourceDirectory = `/Users/austinfinn/Desktop/`
-
     try {
+        const sourceDirectory = process.argv[2]
+        if(!sourceDirectory) throw 'MISSING_WATCH_DIRECTORY'
+
         console.info(`\n Listening for new .mov files in '${sourceDirectory}'\n`)
 
         const watcher = chokidar.watch(sourceDirectory, {
@@ -31,7 +32,11 @@ async function listenForMOVfiles(){
             }
         })
     } catch (error) {
-        console.log(error)
+        if(error == 'MISSING_WATCH_DIRECTORY'){
+            console.info('\n Please include the path to the direcyory where Quicktime videos are saved e.g. ~/Desktop\n')
+        } else {
+            console.log(error)
+        }
     }
 }
 
