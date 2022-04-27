@@ -21,7 +21,8 @@ async function listenForMOVfiles(){
 
     } catch (error) {
         if(error == 'MISSING_WATCH_DIRECTORY'){
-            console.info('\n Please include the path to the directory where Quicktime videos are saved e.g. ~/Desktop/\n')
+            console.info('\n Please include the path to the directory where Quicktime videos are saved')
+            console.info('\n Example: cvt ~/Desktop/\n')
         } else {
             console.log(error)
         }
