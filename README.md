@@ -1,7 +1,7 @@
 # QVC - Quicktime Video Converter
 
 Automagically convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play directly in Chrome
-![Alt Text](https://github.com/austinfinnql/qvc/blob/master/static/qvc_demo.gif)
+![Alt Text](https://media.giphy.com/media/j3hPLbrNWzz3oi1Hlg/giphy.gif)
 
 ## How it works
 - The tool watches for new `.mov` files added to a user specified folder. Once it detects a new video, it automatically converts it to `.mp4`
