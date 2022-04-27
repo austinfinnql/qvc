@@ -21,3 +21,17 @@ Convert `.mov` videos to `.mp4` so, once uploaded to JIRA, they will play direct
 - Start listenting for newly created `.mov` videos
 
         npm start
+
+## Run application in the background
+
+- If you want to close your Terminal and still run the tool, you can install [pm2](https://pm2.keymetrics.io/)
+
+        npm install pm2 -g
+
+- To start the tool in the background, go to the project's root directory and run 
+
+        pm2 start "npm start"
+
+- To stop/kill the background process, run
+
+        pm2 kill
