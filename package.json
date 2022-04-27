@@ -2,8 +2,8 @@
   "name": "mov_to_mp4_converter",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "start": "node app.js"
+  "bin": {
+    "cvt": "app.js"
   },
   "keywords": [],
   "author": "",
